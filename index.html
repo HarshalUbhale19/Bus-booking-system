@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bus Booking System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bus Booking System</h1>
+
+    <form id="bookingForm">
+      <label for="route">Select Route:</label>
+      <select id="route" name="route" required>
+        <option value="" disabled selected>Select a route</option>
+        <option value="cityA-cityB">City A → City B</option>
+        <option value="cityB-cityC">City B → City C</option>
+        <option value="cityC-cityD">City C → City D</option>
+        <option value="cityD-cityA">City D → City A</option>
+      </select>
+
+      <label for="date">Travel Date:</label>
+      <input type="date" id="date" name="date" required min="" />
+
+      <label for="passengers">Number of Passengers:</label>
+      <input type="number" id="passengers" name="passengers" min="1" max="10" value="1" required />
+
+      <button type="submit">Book Now</button>
+    </form>
+
+    <div id="confirmation" class="hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
