@@ -9,13 +9,19 @@ dateInput.setAttribute('min', today);
 bookingForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const route = bookingForm.route.value;
+  const startPoint = bookingForm.startPoint.value;
+  const destination = bookingForm.destination.value;
   const date = bookingForm.date.value;
   const passengers = bookingForm.passengers.value;
 
-  // Basic validation (HTML required handles empty)
-  if (!route || !date || !passengers) {
+  // Validation
+  if (!startPoint || !destination || !date || !passengers) {
     alert('Please fill out all fields correctly.');
+    return;
+  }
+
+  if (startPoint === destination) {
+    alert('Start Point and Destination cannot be the same.');
     return;
   }
 
@@ -29,11 +35,9 @@ bookingForm.addEventListener('submit', function(event) {
     return;
   }
 
-  // Show confirmation message
-  confirmationDiv.textContent = `Booking confirmed for route ${route.replace('-', ' → ')}, on ${date}, for ${passengers} passenger${passengers > 1 ? 's' : ''}. Thank you!`;
+  confirmationDiv.textContent = `Booking confirmed from ${startPoint} to ${destination} on ${date}, for ${passengers} passenger${passengers > 1 ? 's' : ''}. Thank you!`;
   confirmationDiv.classList.remove('hidden');
 
-  // Optionally reset form
   bookingForm.reset();
   dateInput.setAttribute('min', today);
 });
