@@ -8,32 +8,32 @@
 </head>
 <body>
   <div class="container">
+    <!-- Banner Image -->
+    <img src="images/bus-banner.jpg" alt="Bus Banner" class="banner" />
+
     <h1>Bus Booking System</h1>
 
     <form id="bookingForm">
-      <label for="startPoint">Start Point:</label>
-      <select id="startPoint" name="startPoint" required>
-        <option value="" disabled selected>Select start point</option>
-        <option value="City A">City A</option>
-        <option value="City B">City B</option>
-        <option value="City C">City C</option>
-        <option value="City D">City D</option>
-      </select>
+      <div class="input-group">
+        <label for="route">Select Route:</label>
+        <select id="route" name="route" required>
+          <option value="" disabled selected>Select a route</option>
+          <option value="cityA-cityB">City A → City B</option>
+          <option value="cityB-cityC">City B → City C</option>
+          <option value="cityC-cityD">City C → City D</option>
+          <option value="cityD-cityA">City D → City A</option>
+        </select>
+      </div>
 
-      <label for="destination">Destination:</label>
-      <select id="destination" name="destination" required>
-        <option value="" disabled selected>Select destination</option>
-        <option value="City A">City A</option>
-        <option value="City B">City B</option>
-        <option value="City C">City C</option>
-        <option value="City D">City D</option>
-      </select>
+      <div class="input-group">
+        <label for="date">Travel Date:</label>
+        <input type="date" id="date" name="date" required />
+      </div>
 
-      <label for="date">Travel Date:</label>
-      <input type="date" id="date" name="date" required min="" />
-
-      <label for="passengers">Number of Passengers:</label>
-      <input type="number" id="passengers" name="passengers" min="1" max="10" value="1" required />
+      <div class="input-group">
+        <label for="passengers">Number of Passengers:</label>
+        <input type="number" id="passengers" name="passengers" min="1" max="10" value="1" required />
+      </div>
 
       <button type="submit">Book Now</button>
     </form>
