@@ -1,36 +1,56 @@
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Page layout */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
+  background: linear-gradient(135deg, #4caf50, #81c784);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
+/* Card container */
 .container {
   background: white;
   padding: 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  max-width: 450px;
   width: 100%;
 }
 
+/* Banner image */
+.banner {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Heading */
 h1 {
   text-align: center;
   margin-bottom: 25px;
   color: #333;
 }
 
+/* Form */
 form {
   display: flex;
   flex-direction: column;
+}
+
+/* Input group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 label {
@@ -39,46 +59,82 @@ label {
   color: #444;
 }
 
+/* Inputs & selects with icons */
 select, input[type="date"], input[type="number"] {
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 12px 12px 12px 48px;  /* extra left padding for icons */
   border-radius: 6px;
   border: 1.5px solid #ccc;
   font-size: 1em;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-repeat: no-repeat;
+  background-position: 14px center;   /* align icon left-middle */
+  background-size: 22px 22px;         /* icon size */
 }
 
-select:focus, input[type="date"]:focus, input[type="number"]:focus {
+select:focus, input:focus {
   outline: none;
   border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
 }
 
+/* Different icons for each input */
+#route {
+  background-image: url("images/icons/bus.png");
+}
+
+#date {
+  background-image: url("images/icons/calendar.png");
+}
+
+#passengers {
+  background-image: url("images/icons/passenger.png");
+}
+
+/* Button */
 button {
   background-color: #4CAF50;
   color: white;
   font-weight: 700;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1em;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #45a049;
+  transform: translateY(-2px);
 }
 
+/* Confirmation box */
 #confirmation {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 6px;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 8px;
   background-color: #e6ffe6;
   color: #267326;
   font-weight: 600;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .hidden {
   display: none;
+}
+
+#confirmation img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
 }
