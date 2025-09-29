@@ -9,19 +9,13 @@ dateInput.setAttribute('min', today);
 bookingForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const startPoint = bookingForm.startPoint.value;
-  const destination = bookingForm.destination.value;
+  const route = bookingForm.route.value;
   const date = bookingForm.date.value;
   const passengers = bookingForm.passengers.value;
 
   // Validation
-  if (!startPoint || !destination || !date || !passengers) {
+  if (!route || !date || !passengers) {
     alert('Please fill out all fields correctly.');
-    return;
-  }
-
-  if (startPoint === destination) {
-    alert('Start Point and Destination cannot be the same.');
     return;
   }
 
@@ -35,9 +29,18 @@ bookingForm.addEventListener('submit', function(event) {
     return;
   }
 
-  confirmationDiv.textContent = `Booking confirmed from ${startPoint} to ${destination} on ${date}, for ${passengers} passenger${passengers > 1 ? 's' : ''}. Thank you!`;
+  // Show confirmation message with icon
+  confirmationDiv.innerHTML = `
+    <img src="images/success.png" alt="Success" />
+    <h2>Booking Confirmed!</h2>
+    <p><strong>Route:</strong> ${route.replace('-', ' → ')}</p>
+    <p><strong>Date:</strong> ${date}</p>
+    <p><strong>Passengers:</strong> ${passengers}</p>
+    <p>Thank you for booking with us! 🚌</p>
+  `;
   confirmationDiv.classList.remove('hidden');
 
+  // Reset form
   bookingForm.reset();
   dateInput.setAttribute('min', today);
 });
